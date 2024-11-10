@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import { ClerkProvider, SignInButton, UserButton,SignedOut,SignedIn } from "@clerk/nextjs";
+import { ClerkProvider, SignInButton} from "@clerk/nextjs";
+import { dark } from '@clerk/themes'
 
 
 const geistSans = localFont({
@@ -21,15 +22,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider  appearance={{
+      baseTheme: dark
+    }}
+
+      >
+
+
       <html>
+        
           <body>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
           {children}
         </body>
       </html>
