@@ -9,7 +9,8 @@ export default function HomePage() {
   useEffect(() => {
     // Set loading to true and redirect to /dashboard
     setIsLoading(true);
-    router.push("/dashboard").finally(() => setIsLoading(false));
+    router.push("/dashboard");
+    
   }, [router]);
 
   return (
